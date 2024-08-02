@@ -69,7 +69,7 @@ jobs:
             --config_folder ./configs
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: Translated Docs
           title: Automatic translation

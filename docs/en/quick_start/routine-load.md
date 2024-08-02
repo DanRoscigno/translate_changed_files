@@ -22,7 +22,7 @@ When using systems that separate storage from compute, data is stored in low-cos
 This tutorial covers:
 
 - Running StarRocks, Redpanda, and MinIO with Docker Compose
-- Using MinIO as the StarRocks storage layer
+- Using MinIO as the object storage layer
 - Configuring StarRocks for shared-data
 - Adding a Routine Load job to consume data from Redpanda
 

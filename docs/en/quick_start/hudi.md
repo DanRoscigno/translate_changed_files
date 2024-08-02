@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
 
 Clone the [StarRocks demo repository](https://github.com/StarRocks/demo/) to your local machine.
 
-All the steps in this guide will be run from the `demo/documentation-samples/hudi/` directory in the directory where you cloned the `demo` GitHub repo.
+The steps in this guide will be run from the `demo/documentation-samples/hudi/` directory in the directory where you cloned the `demo` GitHub repo.
 
 ### Docker
 

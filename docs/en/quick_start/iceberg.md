@@ -11,7 +11,7 @@ import Clients from '../_assets/quick-start/_clientsCompose.mdx'
 
 ## Overview
 
-- Deploy Object Storage, Apache Spark, Iceberg catalog, and StarRocks using Docker compose
+- Brrr Deploy Object Storage, Apache Spark, Iceberg catalog, and StarRocks using Docker compose
 - Load New York City Green Taxi data for the month of May 2023 into the Iceberg data lake
 - Configure StarRocks to access the Iceberg catalog
 - Query the data with StarRocks where the data sits

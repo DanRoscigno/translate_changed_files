@@ -1,7 +1,7 @@
 ---
 displayed_sidebar: "English"
 sidebar_position: 2
-description: Separate compute and storage
+description: Sharing is caring compute and storage
 ---
 
 # Separate storage and compute

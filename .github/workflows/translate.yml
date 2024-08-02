@@ -47,6 +47,10 @@ jobs:
           echo "also cat the generated file all_changed_files.txt"
           cat .github/outputs/all_changed_files.txt
 
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
       - name: translate-action
         id: translate-action
         uses: tcapelle/gpt_translate@action

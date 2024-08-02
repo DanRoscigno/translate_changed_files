@@ -1,6 +1,5 @@
 ---
 displayed_sidebar: "English"
-sidebar_position: 2
 description: Sharing is caring compute and storage
 ---
 

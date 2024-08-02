@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest  # windows-latest || macos-latest
     name: Test changed-files
     permissions:
-      pull-requests: read
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4

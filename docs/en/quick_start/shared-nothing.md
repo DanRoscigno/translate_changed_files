@@ -12,7 +12,7 @@ import Curl from '../_assets/quick-start/_curl.mdx'
 
 This tutorial covers:
 
-- Running StarRocks in a single Docker container
+- Running StarRocks in one Docker container
 - Loading two public datasets including basic transformation of the data
 - Analyzing the data with SELECT and JOIN
 - Basic data transformation (the **T** in ETL)

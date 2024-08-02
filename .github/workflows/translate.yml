@@ -26,7 +26,8 @@ jobs:
         uses: tj-actions/changed-files@v44
         with:
             files: docs/en/**/*.{md,mdx}
-            write_output_files: 'test_files.txt'
+            output_dir: '.'
+            write_output_files: 'true'
 
       - name: List all changed files
         env:

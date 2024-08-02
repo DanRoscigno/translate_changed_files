@@ -81,4 +81,4 @@ jobs:
           delete-branch: true
           labels: translation
           add-paths: |
-            docs/zh/**/*.md*
+            docs/zh

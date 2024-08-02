@@ -60,9 +60,9 @@ jobs:
           gpt_translate.files \
             --input_file ./.github/outputs/all_changed_files.txt \
             --input_folder ./docs/en \
-            --out_folder docs/zh \
+            --out_folder ./docs/zh \
             --language zh \
-            --config_folder ./configs \
+            --config_path ./configs/config.yaml
             --replace
         shell: bash
 

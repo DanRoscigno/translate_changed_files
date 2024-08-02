@@ -24,11 +24,17 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v44
+        with:
+            files: docs/en/**/*.{md,mdx}
+            output_dir: '.github/outputs' # this is default
+            write_output_files: 'true'
 
       - name: List all changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
+            echo "$file"
           done
+          echo "also cat the generated file all_changed_files.txt"
+          cat .github/outputs/all_changed_files.txt

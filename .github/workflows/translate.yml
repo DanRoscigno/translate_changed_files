@@ -37,4 +37,5 @@ jobs:
             echo "$file"
           done
           echo "also cat the generated file test_files.txt"
-          cat test_files.txt
+          ls .
+          cat ./all_changed_files.txt

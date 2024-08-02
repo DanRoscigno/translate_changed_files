@@ -54,8 +54,7 @@ Change directory into `demo/documentation-samples/hudi` and look at the files. T
 
 ### Configuration files
 
-In the `hudi/conf/` directory you will find configuration files that get mounted in the `spark-hudi`
-container.
+In the `hudi/conf/` directory you will find configuration files that get mounted in the `spark-hudi` container.
 
 ##### `core-site.xml`
 

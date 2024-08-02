@@ -62,7 +62,7 @@ jobs:
             --input_folder ./docs/en \
             --out_folder ./docs/zh \
             --language zh \
-            --config_path ./configs/config.yaml
+            --config_folder ./configs
             --replace
         shell: bash
 

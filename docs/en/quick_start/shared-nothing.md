@@ -17,7 +17,7 @@ This tutorial covers:
 - Analyzing the data with SELECT and JOIN
 - Basic data transformation (the **T** in ETL)
 
-The data used is provided by NYC OpenData and the National Centers for Environmental Information.
+Data used is provided by NYC OpenData and the National Centers for Environmental Information.
 
 These datasets are very large, and because this tutorial is intended to help you get exposed to working with StarRocks we are not going to load data for the past 120 years. You can run the Docker image and load this data on a machine with 4 GB RAM assigned to Docker. For larger fault-tolerant and scalable deployments we have other documentation and will provide that later.
 

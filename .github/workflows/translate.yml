@@ -26,6 +26,7 @@ jobs:
         uses: tj-actions/changed-files@v44
         with:
             files: docs/en/**/*.{md,mdx}
+            write_output_files: 'test_files.txt'
 
       - name: List all changed files
         env:
@@ -34,3 +35,5 @@ jobs:
           for file in ${ALL_CHANGED_FILES}; do
             echo "$file"
           done
+          echo "also cat the generated file test_files.txt"
+          cat test_files.txt

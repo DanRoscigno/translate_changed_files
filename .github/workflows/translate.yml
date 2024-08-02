@@ -81,5 +81,6 @@ jobs:
           delete-branch: true
           labels: translation
           add-paths: |
+            "**/*.md"
             "docs/zh/*.md"
             "docs/zh/*.mdx"

@@ -34,7 +34,7 @@ jobs:
         uses: tj-actions/changed-files@v44
         with:
             files: docs/en/**/*.{md,mdx}
-            output_dir: '.github/outputs' # this is default
+            output_dir: './outputs' # this is modified from default as the checkout action later overwrites `.github`
             write_output_files: 'true'
 
       - name: List all changed files
@@ -45,7 +45,7 @@ jobs:
             echo "$file"
           done
           echo "also cat the generated file all_changed_files.txt"
-          cat .github/outputs/all_changed_files.txt
+          cat ./outputs/all_changed_files.txt
 
       - uses: actions/checkout@v4
         with:
@@ -62,7 +62,7 @@ jobs:
             language: "zh"
             output-folder: "docs/zh"
             config-folder: "./configs"  # where are you translation configs stored
-            input-file: ".github/outputs/all_changed_files.txt"
+            input-file: "./outputs/all_changed_files.txt"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5

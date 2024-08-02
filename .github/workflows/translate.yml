@@ -42,7 +42,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            echo "$file"
+            echo "main/$file" >> changed_files.txt
           done
           echo "also cat the generated file all_changed_files.txt"
           cat ./outputs/all_changed_files.txt
@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          path: main
 
       - name: translate-action
         id: translate-action
@@ -58,11 +59,11 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         with:
-            folder-to-translate: 'docs/'
+            folder-to-translate: 'main/docs/'
             language: "zh"
-            output-folder: "docs/zh"
+            output-folder: "main/docs/zh"
             config-folder: "./configs"  # where are you translation configs stored
-            input-file: "./outputs/all_changed_files.txt"
+            input-file: "/changed_files.txt"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -77,5 +78,5 @@ jobs:
           delete-branch: true
           labels: translation
           add-paths: |
-            "docs/zh/*.md"
-            "docs/zh/*.mdx"
+            "main/docs/zh/*.md"
+            "main/docs/zh/*.mdx"

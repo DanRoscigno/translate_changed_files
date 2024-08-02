@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 ## Goals
 
-- Deploy Object Storage, Apache Spark, Hudi, and StarRocks using Docker compose
+- Deploy Storage, Apache Spark, Hudi, and StarRocks using Docker compose
 - Load a small dataset into Hudi with Apache Spark
 - Configure StarRocks to access the Hive Metastore using an external catalog
 - Query the data with StarRocks **where the data sits**

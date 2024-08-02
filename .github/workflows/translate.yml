@@ -1,9 +1,11 @@
 name: Translate changes to Chinese
 
 on:
-  pull_request:
+  push:
     branches:
       - main
+    paths:
+        - docs/en/**/*.{md,mdx}
 
 jobs:
   # -------------------------------------------------------------

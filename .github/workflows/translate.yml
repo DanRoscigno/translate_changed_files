@@ -57,7 +57,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
-          tree
+          tree .
+          ls -R
           gpt_translate.files \
             --input_file ./.github/outputs/all_changed_files.txt \
             --config_folder ./configs

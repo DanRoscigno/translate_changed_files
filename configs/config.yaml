@@ -1,11 +1,10 @@
 # Logs:
-debug: false  # Debug mode
+debug: true  # Debug mode
 weave_project: "gpt-translate"  # Weave project
 silence_openai: true  # Silence OpenAI logger
 
 # Translation:
 language: "zh"  # Language to translate to
-config_folder: "./configs"  # Config folder
 replace: true  # Replace existing file
 remove_comments: true  # Remove comments
 do_evaluation: true  # Do evaluation

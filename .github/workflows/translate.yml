@@ -34,7 +34,7 @@ jobs:
         uses: tj-actions/changed-files@v44
         with:
             files: docs/en/**/*.{md,mdx}
-            output_dir: './outputs' # this is modified from default as the checkout action later overwrites `.github`
+            output_dir: '.github/outputs' # this is the default dir
             write_output_files: 'true'
 
       - name: List all changed files
@@ -42,28 +42,29 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            echo "main/$file" >> changed_files.txt
+            echo "$file"
           done
           echo "also cat the generated file all_changed_files.txt"
-          cat ./outputs/all_changed_files.txt
+          cat ./.github/outputs/all_changed_files.txt
 
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-          path: main
-
-      - name: translate-action
-        id: translate-action
-        uses: tcapelle/gpt_translate@action
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install gpt_translate
+        shell: bash
+      - name: Translating files
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
-        with:
-            folder-to-translate: 'main/docs/'
-            language: "zh"
-            output-folder: "main/docs/zh"
-            config-folder: "./configs"  # where are you translation configs stored
-            input-file: "/changed_files.txt"
+        run: |
+          gpt_translate.files \
+            --input_file ./.github/outputs/all_changed_files.txt \
+            --input_folder ./docs/en \
+            --out_folder docs/zh \
+            --language zh \
+            --config_folder ./configs \
+            --replace
+        shell: bash
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -78,5 +79,5 @@ jobs:
           delete-branch: true
           labels: translation
           add-paths: |
-            "main/docs/zh/*.md"
-            "main/docs/zh/*.mdx"
+            "docs/zh/*.md"
+            "docs/zh/*.mdx"

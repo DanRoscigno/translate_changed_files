@@ -59,7 +59,7 @@ jobs:
         run: |
           gpt_translate.files \
             --input_file ./.github/outputs/all_changed_files.txt \
-            --config_path ./configs/config.yaml
+            --config_folder ./configs
         shell: bash
 
       - name: Create Pull Request

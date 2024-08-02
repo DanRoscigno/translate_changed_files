@@ -58,13 +58,8 @@ jobs:
           WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
           gpt_translate.files \
-            --debug \
             --input_file ./.github/outputs/all_changed_files.txt \
-            --input_folder ./docs/en \
-            --out_folder ./docs/zh \
-            --language zh \
-            --config_folder ./configs
-            --replace
+            --config_path ./configs/config.yaml
         shell: bash
 
       - name: Create Pull Request

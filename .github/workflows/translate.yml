@@ -63,7 +63,7 @@ jobs:
         run: |
           gpt_translate.files \
             --input_file ./.github/outputs/all_changed_files.txt \
-            --config_folder ./translation/configs
+            --config_folder ./docs/translation/configs
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6

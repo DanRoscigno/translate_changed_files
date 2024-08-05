@@ -1,6 +1,5 @@
 ---
 displayed_sidebar: "English"
-sidebar_position: 2
 toc_max_heading_level: 2
 description: Kafka routine load with shared-data storage
 keywords: ['Routine Load']

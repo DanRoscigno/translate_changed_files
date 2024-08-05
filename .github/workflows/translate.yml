@@ -61,9 +61,11 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
+          cp -r docs/translation/configs . # ugh, only works if configs is in cwd
           gpt_translate.files \
             --input_file ./.github/outputs/all_changed_files.txt \
             --config_folder ./docs/translation/configs
+          rm -rf configs
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6

@@ -64,7 +64,7 @@ jobs:
           cp -r docs/translation/configs . # ugh, only works if configs is in cwd
           gpt_translate.files \
             --input_file ./.github/outputs/all_changed_files.txt \
-            --config_folder ./docs/translation/configs
+            --config_folder ./configs
           rm -rf configs
 
       - name: Create Pull Request

@@ -72,6 +72,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           sed '/s#docs/en#docs/zh#g' ./.github/outputs/all_changed_files.txt > ./.github/outputs/new_files.txt
+          cat ./.github/outputs/new_files.txt
           while IFS="" read -r english || [ -n "$english" ]
           do
             sed -i'' '/displayed_sidebar:/s/English/Chinese/' "$english"

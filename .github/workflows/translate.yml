@@ -67,6 +67,14 @@ jobs:
             --config_folder ./configs
           rm -rf configs
 
+      - name: Fix sidebar display
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          for file in ${ALL_CHANGED_FILES}; do
+            sed -i'' '/displayed_sidebar:/s/English/Chinese/' $file
+          done
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:

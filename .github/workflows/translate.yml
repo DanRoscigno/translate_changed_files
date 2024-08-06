@@ -72,7 +72,8 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            sed -i'' '/displayed_sidebar:/s/English/Chinese/' $file
+            $translated_file = sed 's@docs/en/@docs/zh@' "$file"'@'
+            sed -i'' '/displayed_sidebar:/s/English/Chinese/' $translated_file
           done
 
       - name: Create Pull Request

@@ -18,11 +18,12 @@ jobs:
   # --------------------------------------------------------------
   changed_files:
     # NOTE:
-    # - This is limited to pull_request* events and would raise an error for other events.
-    # - A maximum of 3000 files can be returned.
-    # - For more flexibility and no limitations see "Using local .git directory" above.
+    # This workflow will only translate docs if:
+    # - the PR is merged
+    # - the `Yes, translate...` box is checked
+    # - the `Do not translate` box is unchecked
 
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && contains(toJson(github.event.pull_request.body), '[x] Yes, translate English markdown files with GPT') && contains(toJson(github.event.pull_request.body), '[ ] Do not translate')
     runs-on: ubuntu-latest  # windows-latest || macos-latest
     name: Test changed-files
     permissions:

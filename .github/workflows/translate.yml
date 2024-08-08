@@ -82,9 +82,12 @@ jobs:
       - name: create pull request
         run: |
           git switch -c translate-pr-${{ github.event.pull_request.number }}
-          for file in ./.github/outputs/new_files.txt; do
+
+          while IFS="" read -r translated || [ -n "$translated" ]
+          do
             git add "$file"
-          done
+          done < ./.github/outputs/new_files.txt
+
           git commit -s -m "translated file"
 
           gh pr create -B main --title '[Doc] Automatic translation' --body 'Created by Github action based on [PR](${{ github.event.pull_request.number }})'

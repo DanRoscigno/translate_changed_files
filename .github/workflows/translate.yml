@@ -79,18 +79,14 @@ jobs:
             sed -i'' '/displayed_sidebar:/s/English/Chinese/' "$english"
           done < ./.github/outputs/new_files.txt
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.TRANSLATE_PAT }}
-          commit-message: Translated Docs
-          title: Automatic translation
-          body: |
-            This PR was automatically created by the translate-action when merging [PR](${{ github.event.pull_request.number }})
-            Please review the changes and merge if they are correct.
-          branch: translate-pr-${{ github.event.pull_request.number }}
-          base: main
-          delete-branch: true
-          labels: translation
-          add-paths: |
-            docs/zh
+      - name: create pull request
+        run: |
+          git switch -c translate-pr-${{ github.event.pull_request.number }}
+          for file in ./.github/outputs/new_files.txt do
+            git add "$file"
+          done
+          git commit -s -m "translated file"
+
+          gh pr create -B main --title '[Doc] Automatic translation' --body 'Created by Github action based on [PR](${{ github.event.pull_request.number }})'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

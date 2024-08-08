@@ -82,7 +82,7 @@ jobs:
       - name: create pull request
         run: |
           git switch -c translate-pr-${{ github.event.pull_request.number }}
-          for file in ./.github/outputs/new_files.txt do
+          for file in ./.github/outputs/new_files.txt; do
             git add "$file"
           done
           git commit -s -m "translated file"
